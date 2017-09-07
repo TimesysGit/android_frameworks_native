@@ -21,6 +21,8 @@
 #include <utils/Errors.h>
 #include <utils/String8.h>
 
+#define BATTERY_SCALE_FACTOR 85
+
 namespace android {
 
 // must be kept in sync with definitions in BatteryManager.java
@@ -56,6 +58,8 @@ struct BatteryProperties {
     int batteryChargeCounter;
     int batteryTemperature;
     String8 batteryTechnology;
+    bool batteryHighCapacity;
+	int batteryScaleFactor;
 
     status_t writeToParcel(Parcel* parcel) const;
     status_t readFromParcel(Parcel* parcel);
